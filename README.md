@@ -1,4 +1,4 @@
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powershell/powershell-original.svg" width="190" align="center"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/felip3fl/PowerShell/8eed180b914c5db3683aa6a3631cb8f96e8bda5f/Material/Ico/powershell-ico.svg" width="190" align="center"></p>
 <h3 align="center">POWER SHELL</h3>
 <p align="center">
 <img src="https://img.shields.io/badge/STATUS-EM%20DESENVOLVIMENTO-2d4664">
