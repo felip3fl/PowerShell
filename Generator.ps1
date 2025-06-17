@@ -54,3 +54,44 @@ function cpf($Quantidade = 1) {
 
     return $cpfs
 }
+
+function cnpj($Quantidade = 1) {
+    
+    $cnpjs = @()
+
+    for ($i = 0; $i -lt $Quantidade; $i++) {
+        $cnpj = ""
+        for ($j = 0; $j -lt 8; $j++) {
+            $cnpj += (Get-Random -Minimum 0 -Maximum 10)
+        }
+    
+        # Adiciona código da filial (0001)
+        $cnpj += "0001"
+    
+        # Calcula primeiro dígito verificador
+        $multiplicadores1 = @(5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2)
+        $soma1 = 0
+        for ($k = 0; $k -lt 12; $k++) {
+            $soma1 += [int]$cnpj[$k].ToString() * $multiplicadores1[$k]
+        }
+        $resto1 = $soma1 % 11
+        $digito1 = if ($resto1 -lt 2) { 0 } else { 11 - $resto1 }
+        $cnpj += $digito1
+    
+        # Calcula segundo dígito verificador
+        $multiplicadores2 = @(6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2)
+        $soma2 = 0
+        for ($l = 0; $l -lt 13; $l++) {
+            $soma2 += [int]$cnpj[$l].ToString() * $multiplicadores2[$l]
+        }
+        $resto2 = $soma2 % 11
+        $digito2 = if ($resto2 -lt 2) { 0 } else { 11 - $resto2 }
+        $cnpj += $digito2
+
+        $cnpjs += $cnpj
+    }
+    
+    Set-Clipboard -Value $cpfs
+
+    return $cnpjs
+}
