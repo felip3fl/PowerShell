@@ -29,8 +29,9 @@ function youtube($originalUrl, $videoQuality = "2K") {
         -f "bestvideo[height<=$videoQuality]+(ba[format_note*=original]/ba)" `
         -o '%(channel)s - %(title)s.%(ext)s' `
         -P "temp:/mnt/d/Downloads" `
-        --all-subs `
-        --embed-subs `
+        --sub-langs 'enUS,en,en-US,pt,ptBR,pt-BR' `
+        --alias with-subs,--Xs '--X0 {0} --write-subs --embed-subs' `
+        --alias without-subs,--Xn '--X0 {0} --no-write-subs --no-embed-subs' `
         --add-metadata `
         $urlWithoutParam
 }
