@@ -39,5 +39,11 @@ function youtube($originalUrl, $videoQuality = "2K") {
 # Set-Alias -Name youtube -Value youtube2k -Scope Global
 
 function youtubeTemp() {
-    cd 'D:\Videos\Youtube Temp\'
+    if($IsLinux){
+        cd '/mnt/d/Videos/Youtube Temp'
+    }   
+
+    if($IsWindows){
+        cd 'D:\Videos\Youtube Temp\'
+    }
 }
