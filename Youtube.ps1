@@ -14,6 +14,12 @@ function youtube($originalUrl, $videoQuality = "2K") {
 
     youtubeTemp
 
+    $tempDownloadPath = "D:\Downloads"
+
+    if($IsLinux){
+        $tempDownloadPath = "/mnt/d/Downloads"
+    }   
+
     $url = $originalUrl
     if([string]::IsNullOrEmpty($url)){
         $url = Get-Clipboard
@@ -28,7 +34,7 @@ function youtube($originalUrl, $videoQuality = "2K") {
         --sponsorblock-remove sponsor,selfpromo `
         -f "bestvideo[height<=$videoQuality]+(ba[format_note*=original]/ba)" `
         -o '%(channel)s - %(title)s.%(ext)s' `
-        -P "temp:/mnt/d/Downloads" `
+        -P "temp:$tempDownloadPath" `
         --sub-langs 'enUS,en,en-US,pt,ptBR,pt-BR' `
         --alias with-subs,--Xs '--X0 {0} --write-subs --embed-subs' `
         --alias without-subs,--Xn '--X0 {0} --no-write-subs --no-embed-subs' `
@@ -45,5 +51,15 @@ function youtubeTemp() {
 
     if($IsWindows){
         cd 'D:\Videos\Youtube Temp\'
+    }
+}
+
+function updateYoutube() {
+    if($IsLinux){
+        pipx upgrade yt-dlp
+    }   
+
+    if($IsWindows){
+        pip install --upgrade yt-dlp
     }
 }
