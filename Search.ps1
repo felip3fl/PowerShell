@@ -2354,5 +2354,5 @@ function getList() {
         "zetético"
     ]
     }'
-{
+
 }
