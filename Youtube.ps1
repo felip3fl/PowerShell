@@ -1,7 +1,7 @@
 
 function youtube($originalUrl, $videoQuality = "1440") {
 
-    echo "Video Quality: '$videoQuality'p" 
+    Write-Host 'Video Quality:'$videoQuality'p' 
 
     youtubeTemp
 
