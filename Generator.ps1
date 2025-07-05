@@ -95,3 +95,9 @@ function cnpj($Quantidade = 1) {
 
     return $cnpjs
 }
+
+function guid(){
+    $guid = [guid]::NewGuid().ToString()
+    Set-Clipboard -Value $guid
+    return $guid
+}
