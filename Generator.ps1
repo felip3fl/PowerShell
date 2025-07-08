@@ -101,3 +101,16 @@ function guid(){
     Set-Clipboard -Value $guid
     return $guid
 }
+
+function upper($Texto) {
+    # Pegar o valor do clipboard
+    if (-not $Texto) {
+        $Texto = Get-Clipboard
+    }
+    
+    $textInfo = (Get-Culture).TextInfo
+    $result = $textInfo.ToTitleCase($Texto.ToLower())
+
+    Set-Clipboard -Value $textoConvertido
+    return $result
+}
