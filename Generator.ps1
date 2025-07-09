@@ -111,6 +111,6 @@ function upper($Texto) {
     $textInfo = (Get-Culture).TextInfo
     $result = $textInfo.ToTitleCase($Texto.ToLower())
 
-    Set-Clipboard -Value $textoConvertido
+    Set-Clipboard -Value $result
     return $result
 }
