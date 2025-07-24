@@ -69,6 +69,8 @@ function youtubeTemp() {
     }
 }
 
+Set-Alias -Name youtubeupdate -Value updateYoutube -Scope Global
+
 function updateYoutube() {
     if($IsLinux){
         pipx upgrade yt-dlp
