@@ -45,7 +45,15 @@ function youtubefullhd($originalUrl) {
     youtube $originalUrl "1080"
 }
 
+function youtube1080($originalUrl) {
+    youtube $originalUrl "1080"
+}
+
 function youtubehd($originalUrl) {
+    youtube $originalUrl "720"
+}
+
+function youtube720($originalUrl) {
     youtube $originalUrl "720"
 }
 
