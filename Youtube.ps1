@@ -33,6 +33,29 @@ function youtube($originalUrl, $videoQuality = "1440") {
         $urlWithoutParam
 }
 
+function youtubeTemp() {
+    if($IsLinux){
+        cd '/mnt/d/Videos/Youtube Temp'
+    }   
+
+    if($IsWindows){
+        cd 'D:\Videos\Youtube Temp\'
+    }
+}
+
+Set-Alias -Name youtubeupdate -Value updateYoutube -Scope Global
+
+function updateYoutube() {
+    if($IsLinux){
+        pipx upgrade yt-dlp
+    }   
+
+    if($IsWindows){
+        pip install --upgrade yt-dlp
+    }
+}
+
+
 function youtube2k($originalUrl) {
     youtube $originalUrl "1440"
 }
@@ -63,28 +86,4 @@ function youtube360($originalUrl) {
 
 function youtube4k($originalUrl) {
     youtube $originalUrl "2160"
-}
-
-# Set-Alias -Name youtube2k -Value youtube -Scope Global
-
-function youtubeTemp() {
-    if($IsLinux){
-        cd '/mnt/d/Videos/Youtube Temp'
-    }   
-
-    if($IsWindows){
-        cd 'D:\Videos\Youtube Temp\'
-    }
-}
-
-Set-Alias -Name youtubeupdate -Value updateYoutube -Scope Global
-
-function updateYoutube() {
-    if($IsLinux){
-        pipx upgrade yt-dlp
-    }   
-
-    if($IsWindows){
-        pip install --upgrade yt-dlp
-    }
 }
