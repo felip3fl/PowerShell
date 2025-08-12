@@ -87,3 +87,7 @@ function youtube360($originalUrl) {
 function youtube4k($originalUrl) {
     youtube $originalUrl "2160"
 }
+
+function youtubecar($originalUrl) {
+    youtube $originalUrl "480"
+}
