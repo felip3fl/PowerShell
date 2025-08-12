@@ -1,5 +1,4 @@
-
-function youtube($originalUrl, $videoQuality = "1440") {
+function youtube($originalUrl, $videoQuality = "1440", $format = "") {
 
     Write-Host 'Video Quality:'$videoQuality'p' 
 
@@ -18,12 +17,20 @@ function youtube($originalUrl, $videoQuality = "1440") {
 
 	$urlWithoutParam = $url.Split("&")[0]
 
-    echo $urlWithoutParam
+    Write-Host 'Video URL:'$urlWithoutParam
+
+    if($format -eq "mp4") {
+        $format = "best[height<=$videoQuality]+best[ext=mp4]"
+    } else {
+        $format = "bestvideo[height<=$videoQuality]+(ba[format_note*=original]/ba)"
+    }
+
+    Write-Host 'Script Format:'$format'' 
 
     yt-dlp `
         --check-formats `
         --sponsorblock-remove sponsor,selfpromo `
-        -f "bestvideo[height<=$videoQuality]+(ba[format_note*=original]/ba)" `
+        -f $format `
         -o '%(channel)s - %(title)s.%(ext)s' `
         -P "temp:$tempDownloadPath" `
         --sub-langs 'enUS,en,en-US,pt,ptBR,pt-BR,br' `
