@@ -96,5 +96,5 @@ function youtube4k($originalUrl) {
 }
 
 function youtubecar($originalUrl) {
-    youtube $originalUrl "480"
+    youtube $originalUrl "480" "mp4"
 }
