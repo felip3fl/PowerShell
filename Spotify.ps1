@@ -12,3 +12,17 @@ function Spotify($address, $threads = 3) {
 function SpotifySync($numberOfThreads = 1) {
     spotdl sync zsync.spotdl --threads $numberOfThreads
 }
+
+function SpotifySyncAll($numberOfThreads = 1) {
+    Get-ChildItem  | ForEach-Object {
+    $repoPath = $_.FullName
+    $repoName = $_.Name
+
+    if (Test-Path "$repoPath\zsync.spotdl") {
+        Set-Location $repoPath
+        Write-Host "`n$repoName" -ForegroundColor Yellow
+        
+        SpotifySync($numberOfThreads)
+    }
+    }
+}
