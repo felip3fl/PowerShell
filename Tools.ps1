@@ -3,7 +3,15 @@ function open() {
     powershell.exe -command Invoke-Item $path
 }
 
-function darkMode() {
+function lightMode() {
+    Write-Host "Disabling Dark Mode"
+    $Theme = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize"
+    Set-ItemProperty $Theme AppsUseLightTheme -Value 1
+    Start-Sleep 1
+    Write-Host "Disabled"
+}
+
+function DarkMode() {
     Write-Host "Enabling Dark Mode"
     $Theme = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize"
     Set-ItemProperty $Theme AppsUseLightTheme -Value 0
