@@ -19,18 +19,18 @@ function DarkMode() {
     Write-Host "Enabled"
 }
 
-function Show-FullIcons{
-    $Address = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
-    Set-ItemProperty -Path $Address
-    -Name "TaskbarGlomLevel" -Value 1; 
-    Stop-Process -Name explorer -Force
+function Show-FullIco{
+    Write-Host "Show full icons"
+    $Address = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
+    Set-ItemProperty -Path $Address -Name "TaskbarGlomLevel" -Value 1; 
+    Stop-Process -Name explorer -Force;
 }
 
-function Show-Icons{
-    $Address = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
-    Set-ItemProperty -Path $Address
-    -Name "TaskbarGlomLevel" -Value 0; 
-    Stop-Process -Name explorer -Force
+function Show-Ico{
+    Write-Host "Show only icons"
+    $Address = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
+    Set-ItemProperty -Path $Address -Name "TaskbarGlomLevel" -Value 0;
+    Stop-Process -Name explorer -Force;
 }
 
 function removeFolder(){
