@@ -19,6 +19,20 @@ function DarkMode() {
     Write-Host "Enabled"
 }
 
+function Show-FullIcons{
+    $Address = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
+    Set-ItemProperty -Path $Address
+    -Name "TaskbarGlomLevel" -Value 1; 
+    Stop-Process -Name explorer -Force
+}
+
+function Show-Icons{
+    $Address = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
+    Set-ItemProperty -Path $Address
+    -Name "TaskbarGlomLevel" -Value 0; 
+    Stop-Process -Name explorer -Force
+}
+
 function removeFolder(){
 
 # Script para mover todos os arquivos das subpastas para a pasta raiz
